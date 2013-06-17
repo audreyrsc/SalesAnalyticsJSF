@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+    
+    <ui:composition template="main_template.xhtml">
+        <ui:define name="content">
+            
+            <h:form id="details_form">
+                <h:panelGrid columns="1">
+                    <p:outputLabel style="font-size: 20px;" value="Your agency is located in #{dashboardController.user.agency.name}"/>
+                    <p:outputLabel value="Total number of sales made: #{dashboardController.countSales}"/>
+                    <p:outputLabel value="Total amount sold: #{dashboardController.amountSales}"/>
+                </h:panelGrid>
+            </h:form>
+            
+            <br/>
+            
+            <h:form id="filters_form">
+                <h:panelGrid columns="4">
+                    <p:selectOneMenu id="agency_select" value="#{dashboardController.agencyNameSelected}">
+                        <f:selectItem itemLabel="Agency" itemValue=""/>
+                        <f:selectItems value="#{dashboardController.agenciesNames}"/>
+                    </p:selectOneMenu>
+                    
+                    <p:selectOneMenu id="gender_select" value="#{dashboardController.genderSelected}">
+                        <f:selectItem itemLabel="Gender" itemValue=""/>
+                        <f:selectItems value="#{dashboardController.genders}"/>
+                    </p:selectOneMenu>
+                    
+                    <p:selectOneMenu id="marital_select" value="#{dashboardController.maritalStatusSelected}">
+                        <f:selectItem itemLabel="Marital status" itemValue=""/>
+                        <f:selectItems value="#{dashboardController.maritalStatus}"/>
+                    </p:selectOneMenu>
+                    
+                    <p:selectOneMenu id="income_select" value="#{dashboardController.incomeLevelSelected}">
+                        <f:selectItem itemLabel="Income level" itemValue=""/>
+                        <f:selectItems value="#{dashboardController.incomeLevels}"/>
+                    </p:selectOneMenu>
+                </h:panelGrid>
+                <p:commandButton value="Filtrer" update=":display_form, :details_form" >
+                </p:commandButton>
+            </h:form>
+            
+            <h:form id="display_form">
+                <h:panelGrid columns="1" styleClass="panelGridCenter">
+                    <h3>Best selling products</h3>
+
+                    <h:panelGrid columns="2" styleClass="panelGridCenter">
+                        <p:pieChart id="bestSellingProdChart" value="#{dashboardController.bestSellingProdChart}" legendPosition="w" styleClass="pieChartSize"/>
+
+                        <p:dataTable id="bestSellingProdModel" value="#{dashboardController.bestSellingProdModel}" var="model">
+                            <p:column headerText="Products name">
+                                <p:outputLabel value="#{model.label}"/>
+                            </p:column>
+                            <p:column headerText="Count of sales">
+                                <p:outputLabel value="#{model.count}"/>
+                            </p:column>
+                        </p:dataTable>
+                    </h:panelGrid>
+                </h:panelGrid>
+
+                <h:panelGrid columns="1" styleClass="panelGridCenter">
+                    <h3>Less sold products</h3>
+
+                    <h:panelGrid columns="1" styleClass="panelGridCenter">
+                        <p:dataTable value="#{dashboardController.lessSellingProdModel}" var="model">
+                            <p:column headerText="Products name">
+                                <p:outputLabel value="#{model.label}"/>
+                            </p:column>
+                            <p:column headerText="Count of sales">
+                                <p:outputLabel value="#{model.count}"/>
+                            </p:column>
+                        </p:dataTable>
+                    </h:panelGrid>
+                </h:panelGrid>
+
+                <h:panelGrid columns="1" styleClass="panelGridCenter">
+                    <h3>Breakdown by channel</h3>
+
+                    <h:panelGrid columns="1" styleClass="panelGridCenter">
+                        <p:pieChart value="#{dashboardController.breakdownChannelChart}" legendPosition="w" styleClass="pieChartSize" showDataLabels="true"/>
+                    </h:panelGrid>
+
+                    <h3>Breakdown by agency</h3>
+
+                    <h:panelGrid columns="1" styleClass="panelGridCenter">
+                        <p:pieChart value="#{dashboardController.breakdownAgencyChart}" legendPosition="w" styleClass="pieChartSize" showDataLabels="true"/>
+                    </h:panelGrid>
+
+                </h:panelGrid>
+
+                <h:panelGrid columns="1" styleClass="panelGridCenter">
+                    <p:outputLabel value="About the customers" style="font-size: 20px;"/>
+                </h:panelGrid>
+
+                <h:panelGrid columns="1" styleClass="panelGridCenter">
+                    <h3>Breakdown by gender</h3>
+                    <p:pieChart value="#{dashboardController.breakdownGenderChart}" legendPosition="w" styleClass="pieChartSize" showDataLabels="true"/>
+                </h:panelGrid>
+
+                <h:panelGrid columns="1" styleClass="panelGridCenter">
+                    <h3>Breakdown by marital status</h3>
+                    <p:pieChart value="#{dashboardController.breakdownMaritalStatusChart}" legendPosition="w" styleClass="pieChartSize" showDataLabels="true"/>
+                </h:panelGrid>
+
+                <h:panelGrid columns="1" styleClass="panelGridCenter">
+                    <h3>Breakdown by income level</h3>
+
+                    <h:panelGrid columns="2" styleClass="panelGridCenter">
+                        <p:pieChart value="#{dashboardController.breakdownIncomeLevelChart}" legendPosition="w" styleClass="pieChartSize"/>
+
+                        <p:dataTable value="#{dashboardController.breakdownIncomeLevelModel}" var="model">
+                            <p:column headerText="Income level">
+                                <p:outputLabel value="#{model.label}"/>
+                            </p:column>
+                            <p:column headerText="Count of sales">
+                                <p:outputLabel value="#{model.count}"/>
+                            </p:column>
+                        </p:dataTable>
+                    </h:panelGrid>
+                </h:panelGrid>
+
+                <h:panelGrid columns="1" styleClass="panelGridCenter">
+                    <h3>Most loyal customers</h3>
+
+                    <h:panelGrid columns="1" styleClass="panelGridCenter">
+                        <p:dataTable value="#{dashboardController.mostLoyalCustomersModel}" var="model">
+                            <p:column headerText="Customers name">
+                                <p:outputLabel value="#{model.label}"/>
+                            </p:column>
+                            <p:column headerText="Number of visits">
+                                <p:outputLabel value="#{model.count}"/>
+                            </p:column>
+                        </p:dataTable>
+                    </h:panelGrid>
+                </h:panelGrid>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+</html>

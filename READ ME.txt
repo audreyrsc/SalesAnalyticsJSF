@@ -1,0 +1,6 @@
+Le projet a été déployé sur Cloudbees à l'adresse suivante :
+http://salesanalytics.a146829.cloudbees.net/
+
+L'identifiant de connection est :
+Email : paris@supmarket.com
+Password: supinfo

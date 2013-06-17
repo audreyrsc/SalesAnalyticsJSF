@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<cloudbees-web-app xmlns="http://www.cloudbees.com/xml/webapp/1">
+ 
+    <!-- Application ID (formatted CB_ACCOUNT/APPNAME) -->
+    <appid>a146829/salesanalytics</appid>
+
+    <resource name="jdbc/sales_analytics_146829" auth="Container" type="javax.sql.DataSource">
+      <param name="username" value="Audrey146829" />
+      <param name="password" value="salesroot" />
+      <param name="url" value="jdbc:mysql://ec2-50-19-213-178.compute-1.amazonaws.com:3306/sales_analytics_146829" />
+    </resource>
+ 
+</cloudbees-web-app>

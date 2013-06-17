@@ -1,0 +1,144 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions name="SalesExportService" targetNamespace="http://us.supsellers.com/sales/export" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://us.supsellers.com/sales/export" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+<xs:schema elementFormDefault="unqualified" targetNamespace="http://us.supsellers.com/sales/export" version="1.0" xmlns:tns="http://us.supsellers.com/sales/export" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:element name="channel" type="tns:channel"/>
+<xs:element name="customer" type="tns:customer"/>
+<xs:element name="getFranceSales" type="tns:getFranceSales"/>
+<xs:element name="getFranceSalesResponse" type="tns:getFranceSalesResponse"/>
+<xs:element name="product" type="tns:product"/>
+<xs:element name="promotion" type="tns:promotion"/>
+<xs:element name="sale" type="tns:sale"/>
+<xs:complexType name="getFranceSales">
+    <xs:sequence/>
+  </xs:complexType>
+<xs:complexType name="getFranceSalesResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:sale"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="sale">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="amountSold" type="xs:decimal"/>
+      <xs:element minOccurs="0" ref="tns:channel"/>
+      <xs:element minOccurs="0" ref="tns:customer"/>
+      <xs:element minOccurs="0" ref="tns:product"/>
+      <xs:element minOccurs="0" ref="tns:promotion"/>
+      <xs:element minOccurs="0" name="quantitySold" type="xs:decimal"/>
+      <xs:element minOccurs="0" name="saleId" type="xs:int"/>
+      <xs:element minOccurs="0" name="timeId" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="channel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="channelClass" type="xs:string"/>
+      <xs:element minOccurs="0" name="channelClassId" type="xs:int"/>
+      <xs:element minOccurs="0" name="channelDesc" type="xs:string"/>
+      <xs:element minOccurs="0" name="channelId" type="xs:int"/>
+      <xs:element minOccurs="0" name="channelTotal" type="xs:string"/>
+      <xs:element minOccurs="0" name="channelTotalId" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="customer">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="countryId" type="xs:long"/>
+      <xs:element minOccurs="0" name="custCity" type="xs:string"/>
+      <xs:element minOccurs="0" name="custCityId" type="xs:int"/>
+      <xs:element minOccurs="0" name="custCreditLimit" type="xs:int"/>
+      <xs:element minOccurs="0" name="custEffFrom" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="custEffTo" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="custEmail" type="xs:string"/>
+      <xs:element minOccurs="0" name="custFirstName" type="xs:string"/>
+      <xs:element minOccurs="0" name="custGender" type="xs:string"/>
+      <xs:element minOccurs="0" name="custId" type="xs:int"/>
+      <xs:element minOccurs="0" name="custIncomeLevel" type="xs:string"/>
+      <xs:element minOccurs="0" name="custLastName" type="xs:string"/>
+      <xs:element minOccurs="0" name="custMainPhoneNumber" type="xs:string"/>
+      <xs:element minOccurs="0" name="custMaritalStatus" type="xs:string"/>
+      <xs:element minOccurs="0" name="custPostalCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="custSrcId" type="xs:int"/>
+      <xs:element minOccurs="0" name="custStateProvince" type="xs:string"/>
+      <xs:element minOccurs="0" name="custStateProvinceId" type="xs:int"/>
+      <xs:element minOccurs="0" name="custStreetAddress" type="xs:string"/>
+      <xs:element minOccurs="0" name="custTotal" type="xs:string"/>
+      <xs:element minOccurs="0" name="custTotalId" type="xs:int"/>
+      <xs:element minOccurs="0" name="custValid" type="xs:string"/>
+      <xs:element minOccurs="0" name="custYearOfBirth" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="product">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="prodCategory" type="xs:string"/>
+      <xs:element minOccurs="0" name="prodCategoryDesc" type="xs:string"/>
+      <xs:element minOccurs="0" name="prodCategoryId" type="xs:int"/>
+      <xs:element minOccurs="0" name="prodDesc" type="xs:string"/>
+      <xs:element minOccurs="0" name="prodEffFrom" type="xs:string"/>
+      <xs:element minOccurs="0" name="prodEffTo" type="xs:string"/>
+      <xs:element minOccurs="0" name="prodId" type="xs:int"/>
+      <xs:element minOccurs="0" name="prodListPrice" type="xs:decimal"/>
+      <xs:element minOccurs="0" name="prodMinPrice" type="xs:decimal"/>
+      <xs:element minOccurs="0" name="prodName" type="xs:string"/>
+      <xs:element minOccurs="0" name="prodPackSize" type="xs:string"/>
+      <xs:element minOccurs="0" name="prodSrcId" type="xs:int"/>
+      <xs:element minOccurs="0" name="prodStatus" type="xs:string"/>
+      <xs:element minOccurs="0" name="prodSubcategory" type="xs:string"/>
+      <xs:element minOccurs="0" name="prodSubcategoryDesc" type="xs:string"/>
+      <xs:element minOccurs="0" name="prodSubcategoryId" type="xs:int"/>
+      <xs:element minOccurs="0" name="prodTotal" type="xs:string"/>
+      <xs:element minOccurs="0" name="prodTotalId" type="xs:int"/>
+      <xs:element minOccurs="0" name="prodUnitOfMeasure" type="xs:string"/>
+      <xs:element minOccurs="0" name="prodValid" type="xs:string"/>
+      <xs:element minOccurs="0" name="prodWeightClass" type="xs:int"/>
+      <xs:element minOccurs="0" name="supplierId" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="promotion">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="promoBeginDate" type="xs:string"/>
+      <xs:element minOccurs="0" name="promoCategory" type="xs:string"/>
+      <xs:element minOccurs="0" name="promoCategoryId" type="xs:int"/>
+      <xs:element minOccurs="0" name="promoCost" type="xs:decimal"/>
+      <xs:element minOccurs="0" name="promoEndDate" type="xs:string"/>
+      <xs:element minOccurs="0" name="promoId" type="xs:int"/>
+      <xs:element minOccurs="0" name="promoName" type="xs:string"/>
+      <xs:element minOccurs="0" name="promoSubcategory" type="xs:string"/>
+      <xs:element minOccurs="0" name="promoSubcategoryId" type="xs:int"/>
+      <xs:element minOccurs="0" name="promoTotal" type="xs:string"/>
+      <xs:element minOccurs="0" name="promoTotalId" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getFranceSales">
+    <wsdl:part element="tns:getFranceSales" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getFranceSalesResponse">
+    <wsdl:part element="tns:getFranceSalesResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="SalesExport">
+    <wsdl:operation name="getFranceSales">
+      <wsdl:input message="tns:getFranceSales" name="getFranceSales">
+    </wsdl:input>
+      <wsdl:output message="tns:getFranceSalesResponse" name="getFranceSalesResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SalesExportServiceSoapBinding" type="tns:SalesExport">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getFranceSales">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getFranceSales">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getFranceSalesResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SalesExportService">
+    <wsdl:port binding="tns:SalesExportServiceSoapBinding" name="SalesExportPort">
+      <soap:address location="http://supseller-paris.servme.fr:80/app/SalesExportService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

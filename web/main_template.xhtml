@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    
+    <f:view contentType="text/html">
+        <h:head>
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <link type="text/css" rel="stylesheet" href="css/my_style.css"/>
+                <title>Supmarket - Analytics</title>
+            </f:facet>
+        </h:head>
+
+        <h:body>
+            
+            <div id="header">
+                
+                <p:outputLabel value="Supmarket - SalesAnalytics" style="font-size: 50px;"/>
+                <h:form>
+                    <p:menubar>
+                        <p:menuitem value="Login" action="#{userController.displayLoginPage()}"/>
+                    </p:menubar>
+                </h:form>
+            </div>
+            
+            <div id="main">
+                <ui:insert name="content"/>
+            </div>
+        </h:body>
+
+    </f:view>
+
+</html>

@@ -1,0 +1,26 @@
+#header{
+    background-color: #121212;
+    padding: 10px;
+    margin-bottom: 20px;
+    color: rgb(238, 238, 238);
+}
+
+body {
+    /*background-color: #666666;*/
+    padding: 0px;
+    margin: 0px;
+}
+
+#main {
+    margin: 20px;
+}
+
+.panelGridCenter {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.pieChartSize {
+    width:400px;
+    height:300px;
+}

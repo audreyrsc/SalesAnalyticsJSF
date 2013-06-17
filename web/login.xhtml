@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+    
+    <ui:composition template="main_template.xhtml">
+        <ui:define name="content">
+            <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
+            
+            <h:form id="login_form">
+                <p:panel header="Login informations" >
+                    <h:panelGrid columns="3" >
+                        <p:outputLabel for="email">E-mail</p:outputLabel>
+                        <p:inputText id="email" value="#{userController.email}" required="true"/>
+                        <p:message id="email_massage" for="email"/>
+                                   
+                        <p:outputLabel for="pass">Password</p:outputLabel>
+                        <p:password id="pass" value="#{userController.password}" required="true"/>
+                        <p:message id="pass_message" for="pass"/>
+                        
+                        <p:commandButton action="#{userController.checkUser()}" value="Connection"/>
+                    </h:panelGrid>
+                </p:panel>
+            </h:form>
+        </ui:define>
+        
+    </ui:composition>
+    
+</html>
